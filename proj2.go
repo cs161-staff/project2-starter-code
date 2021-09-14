@@ -68,14 +68,6 @@ func someUsefulThings() {
 	userlib.DebugMsg("Key is %v, %v", pk, sk)
 }
 
-// Helper function: Takes the first 16 bytes and converts it into the UUID type
-func bytesToUUID(data []byte) (ret uuid.UUID) {
-	for x := range ret {
-		ret[x] = data[x]
-	}
-	return
-}
-
 // User is the structure definition for a user record.
 type User struct {
 	Username string
