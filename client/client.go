@@ -1,4 +1,4 @@
-package proj2
+package client
 
 // CS 161 Project 2
 
