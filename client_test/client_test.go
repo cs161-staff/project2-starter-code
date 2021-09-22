@@ -192,7 +192,7 @@ var _ = Describe("Client Tests", func() {
 			err = bob.ReceiveFile(someOtherFilename, aliceUsername, shareFileInfoPtr)
 			Expect(err).To(BeNil(), "Bob could not receive the file that Alice shared.")
 
-			downloadedContent, err := bob.LoadFile(someFilename)
+			downloadedContent, err := bob.LoadFile(someOtherFilename)
 			Expect(err).To(BeNil(), "Bob could not load the file that Alice shared.")
 			Expect(downloadedContent).To(BeEquivalentTo(someShortFileContent),
 				"The file contents that Bob downloaded was not the same as what Alice uploaded.")
