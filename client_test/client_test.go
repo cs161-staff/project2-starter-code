@@ -179,7 +179,7 @@ var _ = Describe("Client Tests", func() {
 			// the tests in this Describe() block.
 			alice, _ = client.InitUser(aliceUsername, alicePassword)
 			bob, _ = client.InitUser(bobUsername, bobPassword)
-			nilufar, _ = client.InitUser(nilufarUsername, nilufarpassword)
+			nilufar, _ = client.InitUser(nilufarUsername, nilufarPassword)
 			olga, _ = client.InitUser(olgaUsername, olgaPassword)
 			marco, _ = client.InitUser(marcoUsername, marcoPassword)
 		})
