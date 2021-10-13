@@ -6,13 +6,11 @@ package client_test
 import (
 	// Some imports use an underscore to prevent the compiler from complaining
 	// about unused imports. Normally, you will want to avoid underscore imports
-	// unless you know exactly what you are doing. This allows You can read more
-	// about underscore imports here:
-	// https://golangdocs.com/blank-identifier-in-golang
+	// unless you know exactly what you are doing. You can read more about
+	// underscore imports here: https://golangdocs.com/blank-identifier-in-golang
 	_ "encoding/hex"
 	_ "encoding/json"
 	_ "errors"
-	"fmt"
 	_ "strconv"
 	_ "strings"
 	"testing"
@@ -25,7 +23,7 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
-	"github.com/cs161-staff/userlib"
+	userlib "github.com/cs161-staff/project2-userlib"
 
 	// The client implementation is intentionally defined in a different package.
 	// This forces us to follow best practice and write tests that only rely on
@@ -123,9 +121,8 @@ var _ = Describe("Client Tests", func() {
 
 	Describe("Creating users", func() {
 		It("should not error when creating a new user", func() {
-			u, err := client.InitUser("Alice", "password")
+			_, err := client.InitUser("Alice", "password")
 			Expect(err).To(BeNil(), "Failed to initialized user Alice.")
-			fmt.Fprint(GinkgoWriter, "Got user", u)
 		})
 
 		It("should error if a username is already taken by another user", func() {
@@ -186,10 +183,10 @@ var _ = Describe("Client Tests", func() {
 
 		It("should share a file without erroring", func() {
 			alice.StoreFile(someFilename, someShortFileContent)
-			shareFileInfoPtr, err := alice.ShareFile(someFilename, bobUsername)
+			shareFileInfoPtr, err := alice.CreateInvitation(someFilename, bobUsername)
 			Expect(err).To(BeNil(), "Alice failed to share a file with Bob.")
 
-			err = bob.ReceiveFile(someOtherFilename, aliceUsername, shareFileInfoPtr)
+			err = bob.AcceptInvitation(aliceUsername, shareFileInfoPtr, someOtherFilename)
 			Expect(err).To(BeNil(), "Bob could not receive the file that Alice shared.")
 
 			downloadedContent, err := bob.LoadFile(someOtherFilename)

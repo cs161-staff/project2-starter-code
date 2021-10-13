@@ -99,7 +99,7 @@ func GetUser(username string, password string) (userdataptr *User, err error) {
 }
 
 // StoreFile is documented at:
-// https://cs161.org/assets/projects/2/docs/client_api/storefile.html
+// https://cs161.org/assets/projects/2/docs/client_api/store_file.html
 func (userdata *User) StoreFile(filename string, data []byte) (err error) {
 
 	//TODO: This is a toy implementation.
@@ -111,14 +111,14 @@ func (userdata *User) StoreFile(filename string, data []byte) (err error) {
 	return
 }
 
-// AppendFile is documented at:
-// https://cs161.org/assets/projects/2/docs/client_api/appendfile.html
-func (userdata *User) AppendFile(filename string, data []byte) (err error) {
+// AppendToFile is documented at:
+// https://cs161.org/assets/projects/2/docs/client_api/append_to_file.html
+func (userdata *User) AppendToFile(filename string, data []byte) (err error) {
 	return
 }
 
 // LoadFile is documented at:
-// https://cs161.org/assets/projects/2/docs/client_api/loadfile.html
+// https://cs161.org/assets/projects/2/docs/client_api/load_file.html
 func (userdata *User) LoadFile(filename string) (dataBytes []byte, err error) {
 
 	//TODO: This is a toy implementation.
@@ -130,27 +130,24 @@ func (userdata *User) LoadFile(filename string) (dataBytes []byte, err error) {
 	json.Unmarshal(dataJSON, &dataBytes)
 	return dataBytes, nil
 	//End of toy implementation
+}
+
+// CreateInvitation is documented at:
+// https://cs161.org/assets/projects/2/docs/client_api/create_invitation.html
+func (userdata *User) CreateInvitation(filename string, recipientUsername string) (
+	invitationPtr uuid.UUID, err error) {
 
 	return
 }
 
-// ShareFile is documented at:
-// https://cs161.org/assets/projects/2/docs/client_api/sharefile.html
-func (userdata *User) ShareFile(filename string, recipient string) (
-	accessToken uuid.UUID, err error) {
-
-	return
-}
-
-// ReceiveFile is documented at:
+// AcceptInvitation is documented at:
 // https://cs161.org/assets/projects/2/docs/client_api/receivefile.html
-func (userdata *User) ReceiveFile(filename string, sender string,
-	accessToken uuid.UUID) error {
+func (userdata *User) AcceptInvitation(senderUsername string, invitationPtr uuid.UUID, filename string) error {
 	return nil
 }
 
-// RevokeFile is documented at:
+// RevokeAccess is documented at:
 // https://cs161.org/assets/projects/2/docs/client_api/revokefile.html
-func (userdata *User) RevokeFile(filename string, targetUsername string) (err error) {
-	return
+func (userdata *User) RevokeAccess(filename string, recipientUsername string) error {
+	return nil
 }
