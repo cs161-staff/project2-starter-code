@@ -6,18 +6,10 @@ package client
 // break the autograder and everyone will be sad.
 
 import (
-	"github.com/cs161-staff/userlib"
-
-	// The JSON library will be useful for serializing go structs.
-	// See: https://cs161.org/assets/projects/2/docs/coding_tips/json.html.
-	"encoding/json"
+	userlib "github.com/cs161-staff/project2-userlib"
 
 	// Likewise, useful for debugging, etc.
 	"encoding/hex"
-
-	// The Datastore requires UUIDs to store key-value entries.
-	// See: https://cs161.org/assets/projects/2/docs/coding_tips/uuid.html.
-	"github.com/google/uuid"
 
 	// Useful for debug messages, or string manipulation for datastore keys.
 	"strings"
@@ -38,7 +30,7 @@ import (
 // Of course, this function can be deleted.
 func someUsefulThings() {
 	// Creates a random UUID
-	f := uuid.New()
+	f := userlib.UUIDNew()
 	userlib.DebugMsg("UUID as string:%v", f.String())
 
 	// Example of writing over a byte of f
@@ -51,10 +43,10 @@ func someUsefulThings() {
 
 	// Marshals data into a JSON representation
 	// Will actually work with go structures as well
-	d, _ := json.Marshal(f)
+	d, _ := userlib.Marshal(f)
 	userlib.DebugMsg("The json data: %v", string(d))
-	var g uuid.UUID
-	json.Unmarshal(d, &g)
+	var g userlib.UUID
+	userlib.Unmarshal(d, &g)
 	userlib.DebugMsg("Unmashaled data %v", g.String())
 
 	// This creates an error type
@@ -103,8 +95,8 @@ func GetUser(username string, password string) (userdataptr *User, err error) {
 func (userdata *User) StoreFile(filename string, data []byte) (err error) {
 
 	//TODO: This is a toy implementation.
-	storageKey, _ := uuid.FromBytes([]byte(filename + userdata.Username)[:16])
-	jsonData, _ := json.Marshal(data)
+	storageKey, _ := userlib.UUIDFromBytes([]byte(filename + userdata.Username)[:16])
+	jsonData, _ := userlib.Marshal(data)
 	userlib.DatastoreSet(storageKey, jsonData)
 	//End of toy implementation
 
@@ -122,12 +114,12 @@ func (userdata *User) AppendToFile(filename string, data []byte) (err error) {
 func (userdata *User) LoadFile(filename string) (dataBytes []byte, err error) {
 
 	//TODO: This is a toy implementation.
-	storageKey, _ := uuid.FromBytes([]byte(filename + userdata.Username)[:16])
+	storageKey, _ := userlib.UUIDFromBytes([]byte(filename + userdata.Username)[:16])
 	dataJSON, ok := userlib.DatastoreGet(storageKey)
 	if !ok {
 		return nil, errors.New(strings.ToTitle("File not found!"))
 	}
-	json.Unmarshal(dataJSON, &dataBytes)
+	userlib.Unmarshal(dataJSON, &dataBytes)
 	return dataBytes, nil
 	//End of toy implementation
 }
@@ -135,14 +127,14 @@ func (userdata *User) LoadFile(filename string) (dataBytes []byte, err error) {
 // CreateInvitation is documented at:
 // https://cs161.org/assets/projects/2/docs/client_api/create_invitation.html
 func (userdata *User) CreateInvitation(filename string, recipientUsername string) (
-	invitationPtr uuid.UUID, err error) {
+	invitationPtr userlib.UUID, err error) {
 
 	return
 }
 
 // AcceptInvitation is documented at:
 // https://cs161.org/assets/projects/2/docs/client_api/receivefile.html
-func (userdata *User) AcceptInvitation(senderUsername string, invitationPtr uuid.UUID, filename string) error {
+func (userdata *User) AcceptInvitation(senderUsername string, invitationPtr userlib.UUID, filename string) error {
 	return nil
 }
 

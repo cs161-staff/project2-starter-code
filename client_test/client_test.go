@@ -9,7 +9,6 @@ import (
 	// unless you know exactly what you are doing. You can read more about
 	// underscore imports here: https://golangdocs.com/blank-identifier-in-golang
 	_ "encoding/hex"
-	_ "encoding/json"
 	_ "errors"
 	_ "strconv"
 	_ "strings"
@@ -104,8 +103,7 @@ var _ = Describe("Client Tests", func() {
 		userlib.DatastoreClear()
 		userlib.KeystoreClear()
 
-		// You can set this to false!
-		userlib.SetDebugStatus(true)
+		userlib.SymbolicDebug = false
 	})
 
 	BeforeEach(func() {
