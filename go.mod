@@ -1,6 +1,6 @@
 module github.com/cs161-staff/project2-starter-code
 
-go 1.17
+go 1.20
 
 require github.com/cs161-staff/project2-userlib v0.4.1
 
