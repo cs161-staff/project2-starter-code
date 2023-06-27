@@ -5,6 +5,8 @@ github.com/cs161-staff/project2-userlib v0.4.1 h1:/uNXzMMr1VMm53mptD3XILsDFB7rwW
 github.com/cs161-staff/project2-userlib v0.4.1/go.mod h1:lgFIBPmBUg09wLu1+Zu74rWTg1U21QC7Q7v6DlcEDFU=
 github.com/cs161-staff/project2-userlib v0.4.2-0.20230626054859-af7a39e5f627 h1:SS9q0fIVbTMh5avrp0PVlrlyEEdW74VyQo6iBEid7mg=
 github.com/cs161-staff/project2-userlib v0.4.2-0.20230626054859-af7a39e5f627/go.mod h1:eoJNmhKfvqQ6fG5ysf8YvoKvCWrSbuXJQR6GjCUSXQw=
+github.com/cs161-staff/project2-userlib v0.5.0 h1:5LZb1i9y5FGCfMsj3uMs+qDx0epzff6YrFvHF5cM9AE=
+github.com/cs161-staff/project2-userlib v0.5.0/go.mod h1:eoJNmhKfvqQ6fG5ysf8YvoKvCWrSbuXJQR6GjCUSXQw=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/fsnotify/fsnotify v1.4.7/go.mod h1:jwhsz4b93w/PPRr/qN1Yymfu8t87LnFCMoQvtojpjFo=
