@@ -15,7 +15,7 @@ import (
 	// A "dot" import is used here so that the functions in the ginko and gomega
 	// modules can be used without an identifier. For example, Describe() and
 	// Expect() instead of ginko.Describe() and gomega.Expect().
-	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
 	userlib "github.com/cs161-staff/project2-userlib"
