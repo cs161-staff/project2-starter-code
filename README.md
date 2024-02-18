@@ -12,9 +12,17 @@ To test your implementation, run `go test -v` inside of the `client_test` direct
 
 Fill in this section with the student IDs of all the members in your project group.
 
+Partner 1 Name:
+
 Partner 1 SID:
 
+Partner 1 Email:
+
+Partner 2 Name (if applicable):
+
 Partner 2 SID (if applicable):
+
+Partner 2 Email (if applicable):
 
 Also add a link to this repo below (should start with https://github.com/cs161-students/).
 
