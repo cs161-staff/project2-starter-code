@@ -12,6 +12,8 @@ import (
 	_ "strings"
 	"testing"
 
+	_ "github.com/google/uuid"
+
 	// A "dot" import is used here so that the functions in the ginko and gomega
 	// modules can be used without an identifier. For example, Describe() and
 	// Expect() instead of ginko.Describe() and gomega.Expect().
